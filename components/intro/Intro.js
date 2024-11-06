@@ -14,7 +14,7 @@ const particleSizeAlter = 2
 const spawnRadius = 2.4
 const sqrRadius = spawnRadius * spawnRadius
 
-const particleNum = 20000
+const particleNum = 40000
 
 //endregion
 
@@ -129,7 +129,7 @@ export default function ModelPage() {
     uniform float spreadProgress;
     void main() {
       vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-      gl_PointSize = size * spreadProgress * spreadProgress;
+      gl_PointSize = size * spreadProgress * spreadProgress * 0.5;
       gl_Position = projectionMatrix * mvPosition;
       vScreenPosition = gl_Position;
     }
