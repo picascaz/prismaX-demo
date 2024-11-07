@@ -129,7 +129,7 @@ export default function ModelPage() {
     uniform float spreadProgress;
     void main() {
       vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-      gl_PointSize = size * spreadProgress * spreadProgress * 0.5;
+      gl_PointSize = size * spreadProgress * spreadProgress * 0.6;
       gl_Position = projectionMatrix * mvPosition;
       vScreenPosition = gl_Position;
     }
