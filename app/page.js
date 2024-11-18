@@ -10,7 +10,6 @@ export default function RootLayout() {
   return (
     <>
       <Navbar />
-      <Intro />
       <ModelPage />
       <Third />
       <div style={{
