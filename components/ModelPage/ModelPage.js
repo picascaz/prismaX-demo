@@ -16,7 +16,7 @@ export default function ModelPage() {
 
     const container = document.getElementById('three')
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
-    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setPixelRatio(window.devicePixelRatio * 2)
     container.appendChild(renderer.domElement)
 
     const width = container.clientWidth,
@@ -100,6 +100,18 @@ export default function ModelPage() {
                 child.material.color = new THREE.Color(0xffffff)
                 child.material.metalness = 0.7
                 child.material.roughness = 0.2
+                //map denoise
+                child.material.map.encoding = THREE.sRGBEncoding
+                child.material.map.anisotropy = 16
+                //sample
+                child.material.map.minFilter = THREE.NearestFilter
+                child.material.map.magFilter = THREE.NearestFilter
+                child.material.map.premultiplyAlpha = false;
+
+                child.material.alphaTest = 0.01
+                child.material.transparent = true
+                //apply
+                child.material.needsUpdate = true
               }
             })
             resolve(gltf)
@@ -139,7 +151,7 @@ export default function ModelPage() {
       //from left to right
       const bubbleCount = 100
       const bubbleSize = 0.2
-      const bubbleSpeed = 0.005
+      const bubbleSpeed = 0.015
       //list of bubbles
       const bubbles = []
       const bubbleOpacity = []
@@ -197,7 +209,7 @@ export default function ModelPage() {
           if (bubble.position.x > -2) {
             bubble.position.x = -9
             //reset opacity
-            bubble.material.opacity = 0
+            bubbleOpacity[i] = 0
             //new speed
             bubbleSpeeds[i] = bubbleSpeed + Math.random() * 0.004
             //new z
@@ -228,7 +240,7 @@ export default function ModelPage() {
       //from left to right
       const bubbleCount = 25
       const bubbleSize = 0.7
-      const bubbleSpeed = 0.005
+      const bubbleSpeed = 0.015
       //list of bubbles
       const bubbles = []
       const bubbleOpacity = []
@@ -268,9 +280,9 @@ export default function ModelPage() {
           const bubble = bubbles[i]
           bubble.position.x += bubbleSpeeds[i]
 
-          if (bubbleOpacity[i] < 1 && bubble.position.x < 7) {
+          if (bubbleOpacity[i] < 1 && bubble.position.x < 6) {
             bubbleOpacity[i] += 0.005
-          } else if (bubble.position.x > 7) {
+          } else if (bubble.position.x > 6) {
             bubbleOpacity[i] -= 0.01
           }
 
@@ -283,7 +295,7 @@ export default function ModelPage() {
           if (bubble.position.x > 8) {
             bubble.position.x = 2
             //reset opacity
-            bubble.material.opacity = 0
+            bubbleOpacity[i] = 0
             //new speed
             bubbleSpeeds[i] = bubbleSpeed + Math.random() * 0.004
             //new z
