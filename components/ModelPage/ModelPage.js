@@ -150,7 +150,7 @@ export default function ModelPage() {
       //create bubbles using rects
       //from left to right
       const bubbleCount = 100
-      const bubbleSize = 0.2
+      const bubbleSize = 0.05
       const bubbleSpeed = 0.015
       //list of bubbles
       const bubbles = []
@@ -198,7 +198,7 @@ export default function ModelPage() {
           }
 
           const lastScale = bubble.scale.x
-          const sizeSpeed = 0.002
+          const sizeSpeed = 0.025
           if (bubble.position.x < -5.5) {
             //size enlarge
             bubble.scale.set(lastScale + sizeSpeed, lastScale + sizeSpeed, lastScale + sizeSpeed)
@@ -261,7 +261,7 @@ export default function ModelPage() {
         const bubble = new THREE.Mesh(geometry, material)
         bubble.position.set(
           Math.random() * 5 + 2,
-          Math.random() * 4 - 2,
+          Math.random() * 3.2 - 1.6,
           Math.random() - 8
         )
         bubble.rotation.z = Math.random() * Math.PI * 2
@@ -300,7 +300,7 @@ export default function ModelPage() {
             //new speed
             bubbleSpeeds[i] = bubbleSpeed + Math.random() * 0.004
             //new z
-            bubble.position.y = Math.random() * 4 - 2
+            bubble.position.y = Math.random() * 3.2 - 1.6,
             //reset size
             bubble.scale.set(1, 1, 1)
           }
@@ -365,18 +365,6 @@ export default function ModelPage() {
           <h1
             style={{ fontSize: '4vw' }}
           >PrismaX PoV</h1>
-        </div>
-        <div style={{
-          position: 'relative', width: '100vw', textAlign: 'center', top: '50%', transform: 'translateY(-50%)', zIndex: 1,
-          display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '3%',
-          fontSize: '2vw', lineHeight: '3vw',
-        }}>
-          <div>
-            <p>{'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0'}FPV Data</p>
-          </div>
-          <div>
-            <p>High Quality Data</p>
-          </div>
         </div>
       </div >
     </>
