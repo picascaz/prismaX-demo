@@ -341,11 +341,11 @@ export default function ModelPage() {
         const xangle = (xpercent - 0.5) * Math.PI
         const yangle = (ypercent - 0.5) * Math.PI
 
-        currentgltf.scene.rotation.x = yangle / 20
-        currentgltf.scene.rotation.y = xangle / 20 + Math.PI / 2
+        currentgltf.scene.rotation.x = yangle / 60
+        currentgltf.scene.rotation.y = xangle / 60 + Math.PI / 2
 
-        bubbleContainer.rotation.x = yangle / 20
-        bubbleContainer.rotation.y = xangle / 20
+        bubbleContainer.rotation.x = yangle / 60
+        bubbleContainer.rotation.y = xangle / 60
       }
     })
   }, [])
