@@ -352,6 +352,7 @@ export default function ModelPage() {
   return (
     <>
       <div style={{ width: '100vw', height: '60vw' }}>
+        <img style={{ position: 'absolute', width: '100vw', height: '60vw', objectFit: 'cover' }} src="/halo.png" />
         <div
           id="three"
           style={{
