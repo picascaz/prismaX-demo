@@ -198,7 +198,7 @@ export default function ModelPage() {
           }
 
           const lastScale = bubble.scale.x
-          const sizeSpeed = 0.025
+          const sizeSpeed = 0.032
           if (bubble.position.x < -5.5) {
             //size enlarge
             bubble.scale.set(lastScale + sizeSpeed, lastScale + sizeSpeed, lastScale + sizeSpeed)
