@@ -239,7 +239,7 @@ export default function ModelPage() {
       //create bubbles using rects
       //from left to right
       const bubbleCount = 25
-      const bubbleSize = 0.3
+      const bubbleSize = 0.2
       const bubbleSpeed = 0.015
       //list of bubbles
       const bubbles = []
@@ -288,10 +288,8 @@ export default function ModelPage() {
 
           //size enlarge
           const lastScale = bubble.scale.x
-          const enlargeSpeed = 0.012
-          if (lastScale < 4) {
-            bubble.scale.set(lastScale + enlargeSpeed, lastScale + enlargeSpeed, lastScale + enlargeSpeed)
-          }
+          const enlargeSpeed = 0.015
+          bubble.scale.set(lastScale + enlargeSpeed, lastScale + enlargeSpeed, lastScale + enlargeSpeed)
 
           if (bubble.position.x > 8) {
             bubble.position.x = 2
@@ -301,8 +299,8 @@ export default function ModelPage() {
             bubbleSpeeds[i] = bubbleSpeed + Math.random() * 0.004
             //new z
             bubble.position.y = Math.random() * 3.2 - 1.6,
-            //reset size
-            bubble.scale.set(1, 1, 1)
+              //reset size
+              bubble.scale.set(1, 1, 1)
           }
 
           //opacity
