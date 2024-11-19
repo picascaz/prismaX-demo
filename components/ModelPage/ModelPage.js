@@ -239,7 +239,7 @@ export default function ModelPage() {
       //create bubbles using rects
       //from left to right
       const bubbleCount = 25
-      const bubbleSize = 0.7
+      const bubbleSize = 0.3
       const bubbleSpeed = 0.015
       //list of bubbles
       const bubbles = []
@@ -288,8 +288,9 @@ export default function ModelPage() {
 
           //size enlarge
           const lastScale = bubble.scale.x
-          if (lastScale < 2) {
-            bubble.scale.set(lastScale + 0.0015, lastScale + 0.0015, lastScale + 0.0015)
+          const enlargeSpeed = 0.012
+          if (lastScale < 4) {
+            bubble.scale.set(lastScale + enlargeSpeed, lastScale + enlargeSpeed, lastScale + enlargeSpeed)
           }
 
           if (bubble.position.x > 8) {
