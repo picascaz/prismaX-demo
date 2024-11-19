@@ -81,10 +81,10 @@ export default function ModelPage() {
 
 
     //center spotlight3
-    const pointLght3 = new THREE.PointLight(0xffffff, 20)
-    pointLght3.position.set(0.2, 1, 0.3)
+    const pointLght3 = new THREE.PointLight(0xffffff, 10)
+    pointLght3.position.set(0.2, 1, 0)
     //radius
-    pointLght3.distance = 1
+    pointLght3.distance = 0.8
     scene.add(pointLght3)
 
     const loader = new GLTFLoader()
@@ -191,9 +191,9 @@ export default function ModelPage() {
           const bubble = bubbles[i]
           bubble.position.x += bubbleSpeeds[i]
 
-          if (bubbleOpacity[i] < 1 && bubble.position.x < -4) {
+          if (bubbleOpacity[i] < 1 && bubble.position.x < -5) {
             bubbleOpacity[i] += 0.01
-          } else if (bubble.position.x > -4) {
+          } else if (bubble.position.x > -5) {
             bubbleOpacity[i] -= 0.01
           }
 
@@ -206,8 +206,8 @@ export default function ModelPage() {
             bubble.scale.set(lastScale - sizeSpeed, lastScale - sizeSpeed, lastScale - sizeSpeed)
           }
 
-          if (bubble.position.x > -2) {
-            bubble.position.x = -9
+          if (bubble.position.x > -3) {
+            bubble.position.x = -8
             //reset opacity
             bubbleOpacity[i] = 0
             //new speed
