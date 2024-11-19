@@ -171,7 +171,7 @@ export default function ModelPage() {
         const bubble = new THREE.Mesh(geometry, material)
         bubble.position.set(
           Math.random() * 5 - 8,
-          Math.random() * 3.6 - 1.8,
+          Math.random() * 3.6 - 2,
           Math.random() - 8
         )
         //random rotation
@@ -213,7 +213,7 @@ export default function ModelPage() {
             //new speed
             bubbleSpeeds[i] = bubbleSpeed + Math.random() * 0.004
             //new z
-            bubble.position.y = Math.random() * 3.6 - 1.8
+            bubble.position.y = Math.random() * 3.6 - 2
 
             //reset size
             bubble.scale.set(1, 1, 1)
