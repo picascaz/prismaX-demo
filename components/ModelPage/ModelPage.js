@@ -137,8 +137,8 @@ export default function ModelPage() {
     {
       //create bubbles using rects
       //from left to right
-      const bubbleCount = 80
-      const bubbleSize = 0.3
+      const bubbleCount = 100
+      const bubbleSize = 0.2
       const bubbleSpeed = 0.005
       //list of bubbles
       const bubbles = []
@@ -158,7 +158,7 @@ export default function ModelPage() {
 
         const bubble = new THREE.Mesh(geometry, material)
         bubble.position.set(
-          Math.random() * 3 - 6,
+          Math.random() * 5 - 8,
           Math.random() * 3.6 - 1.8,
           Math.random() - 8
         )
@@ -179,20 +179,32 @@ export default function ModelPage() {
           const bubble = bubbles[i]
           bubble.position.x += bubbleSpeeds[i]
 
-          if (bubbleOpacity[i] < 1 && bubble.position.x < -3) {
+          if (bubbleOpacity[i] < 1 && bubble.position.x < -4) {
             bubbleOpacity[i] += 0.01
-          } else if (bubble.position.x > -3) {
+          } else if (bubble.position.x > -4) {
             bubbleOpacity[i] -= 0.01
           }
 
+          const lastScale = bubble.scale.x
+          const sizeSpeed = 0.002
+          if (bubble.position.x < -5.5) {
+            //size enlarge
+            bubble.scale.set(lastScale + sizeSpeed, lastScale + sizeSpeed, lastScale + sizeSpeed)
+          } else {
+            bubble.scale.set(lastScale - sizeSpeed, lastScale - sizeSpeed, lastScale - sizeSpeed)
+          }
+
           if (bubble.position.x > -2) {
-            bubble.position.x = -7
+            bubble.position.x = -9
             //reset opacity
             bubble.material.opacity = 0
             //new speed
             bubbleSpeeds[i] = bubbleSpeed + Math.random() * 0.004
             //new z
             bubble.position.y = Math.random() * 3.6 - 1.8
+
+            //reset size
+            bubble.scale.set(1, 1, 1)
           }
 
           //opacity
@@ -214,8 +226,8 @@ export default function ModelPage() {
     {
       //create bubbles using rects
       //from left to right
-      const bubbleCount = 15
-      const bubbleSize = 1.4
+      const bubbleCount = 25
+      const bubbleSize = 0.7
       const bubbleSpeed = 0.005
       //list of bubbles
       const bubbles = []
@@ -236,7 +248,7 @@ export default function ModelPage() {
 
         const bubble = new THREE.Mesh(geometry, material)
         bubble.position.set(
-          Math.random() * 3 + 3,
+          Math.random() * 5 + 2,
           Math.random() * 4 - 2,
           Math.random() - 8
         )
@@ -256,13 +268,19 @@ export default function ModelPage() {
           const bubble = bubbles[i]
           bubble.position.x += bubbleSpeeds[i]
 
-          if (bubbleOpacity[i] < 1 && bubble.position.x < 6) {
-            bubbleOpacity[i] += 0.01
-          } else if (bubble.position.x > 6) {
+          if (bubbleOpacity[i] < 1 && bubble.position.x < 7) {
+            bubbleOpacity[i] += 0.005
+          } else if (bubble.position.x > 7) {
             bubbleOpacity[i] -= 0.01
           }
 
-          if (bubble.position.x > 7) {
+          //size enlarge
+          const lastScale = bubble.scale.x
+          if (lastScale < 2) {
+            bubble.scale.set(lastScale + 0.0015, lastScale + 0.0015, lastScale + 0.0015)
+          }
+
+          if (bubble.position.x > 8) {
             bubble.position.x = 2
             //reset opacity
             bubble.material.opacity = 0
@@ -270,6 +288,8 @@ export default function ModelPage() {
             bubbleSpeeds[i] = bubbleSpeed + Math.random() * 0.004
             //new z
             bubble.position.y = Math.random() * 4 - 2
+            //reset size
+            bubble.scale.set(1, 1, 1)
           }
 
           //opacity
