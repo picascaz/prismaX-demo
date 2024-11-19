@@ -367,16 +367,14 @@ export default function ModelPage() {
         </div>
         <div style={{
           position: 'relative', width: '100vw', textAlign: 'center', top: '50%', transform: 'translateY(-50%)', zIndex: 1,
-          display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '5%',
+          display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '3%',
           fontSize: '2vw', lineHeight: '3vw',
         }}>
           <div>
-            <p>First Person</p>
-            <p>View Data</p>
+            <p>{'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0'}FPV Data</p>
           </div>
           <div>
-            <p>High Quality</p>
-            <p>Data for Gen AI</p>
+            <p>High Quality Data</p>
           </div>
         </div>
       </div >
